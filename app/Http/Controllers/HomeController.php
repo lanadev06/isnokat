@@ -45,4 +45,20 @@ class HomeController extends Controller
                 'work' => $work,
             ]);
     }
+
+    public function company($id)
+    {
+        $company = Company::findOrFail($id);
+
+        $work = Work::where('company_id',$company->id)
+            ->with('category','employer')
+            ->orderBy('viewed','asc')
+            ->paginate(24);
+
+        return view('home.company')
+            ->with([
+                'company' => $company,
+                'work' => $work,
+            ]);
+    }
 }

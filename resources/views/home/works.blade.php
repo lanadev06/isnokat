@@ -2,7 +2,7 @@
     @foreach($companies as $company)
         <div class="h4 d-flex align-items-center justify-content-between pb-2">
             <div>
-                <a href="">{{ $company->name }}</a>
+                <a href="{{ route("company.show",$company->id) }}">{{ $company->name }}</a>
             </div>
             <div>
                 <i class="bi-arrow-right"></i>

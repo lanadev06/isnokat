@@ -8,7 +8,7 @@ class Category extends Model
 {
     public $timestamps = false;
 
-    public function work()
+    public function works()
     {
         return $this->hasMany(Work::class);
     }
