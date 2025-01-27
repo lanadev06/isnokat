@@ -17,8 +17,9 @@ class CompanyFactory extends Factory
      */
     public function definition(): array
     {
+        $location = Location::inRandomOrder()->first();
         return [
-            'location_id' => Location::inRandomOrder()->first()->id,
+            'location_id' => $location ? $location->id : null,
             'name' => fake()->company(),
         ];
     }

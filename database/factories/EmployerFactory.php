@@ -3,6 +3,8 @@
 namespace Database\Factories;
 
 use App\Models\Company;
+use App\Models\Employer;
+use App\Models\Work;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;

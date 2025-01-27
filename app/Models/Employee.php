@@ -17,7 +17,7 @@ class Employee extends Model
         'phone',
     ];
 
-    public function employeeWork() {
-        return $this->belongsToMany(Work::class);
+    public function works() {
+        return $this->belongsToMany(Work::class, 'employee_works');
     }
 }

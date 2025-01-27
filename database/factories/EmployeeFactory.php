@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\Employee;
+use App\Models\Work;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -22,5 +24,12 @@ class EmployeeFactory extends Factory
             'email' => fake()->unique()->safeEmail(),
             'phone' => fake()->phoneNumber(),
         ];
+    }
+
+    public function configure()
+    {
+        return $this->afterCreating(function (Employee $employee) {
+            $employee->works()->attach(Work::factory(3)->create()->pluck('id'));
+        });
     }
 }

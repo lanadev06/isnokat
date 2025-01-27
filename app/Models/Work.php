@@ -11,17 +11,34 @@ class Work extends Model
     use HasFactory;
 
     protected $fillable = [
+        'employer_id',
+        'category_id',
+        'company_id',
+        'viewed',
         'name',
-        'surname',
-        'email',
-        'phone',
+        'description',
+        'salary',
+        'work_type',
+        'work_time',
     ];
 
-    public function workEmployer() {
-        return $this->belongsToMany(Employer::class);
+    public function employees()
+    {
+        return $this->belongsToMany(Employee::class);
     }
 
-    public function workEmployee() {
-        return $this->belongsToMany(Employee::class);
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+    public function employer()
+    {
+        return $this->belongsTo(Employer::class);
+    }
+
+    public function company()
+    {
+        return $this->belongsTo(Company::class);
     }
 }

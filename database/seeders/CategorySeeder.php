@@ -25,6 +25,7 @@ class CategorySeeder extends Seeder
         foreach ($objs as $obj) {
             Category::create([
                 'name' => $obj,
+                'slug' => str($obj)->slug(),
             ]);
         }
     }

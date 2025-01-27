@@ -28,7 +28,7 @@ class WorkFactory extends Factory
             'description' => fake()->paragraph($nbSentences = 3, $variableNbSentences = true),
             'salary' => fake()->numberBetween($min = 0, $max = 9000),
             'work_type' => fake()->randomElement(['remote', 'onsite', 'hybrid']),
-            'work_time' => fake()->randomElement(['daily', 'monthly', 'yearly'])
+            'work_time' => fake()->randomElement(['daily', 'monthly', 'yearly']),
         ];
     }
 }

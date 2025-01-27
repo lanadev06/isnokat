@@ -11,4 +11,14 @@ class Company extends Model
     use HasFactory;
 
     public $timestamps = false;
+
+    public function location()
+    {
+        return $this->belongsTo(Location::class);
+    }
+
+    public function works()
+    {
+       return $this->hasMany(Work::class);
+    }
 }

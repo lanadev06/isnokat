@@ -17,7 +17,18 @@ class Employer extends Model
         'phone',
     ];
 
-    public function employerWork() {
-        return $this->belongsToMany(Work::class);
+    public function works()
+    {
+        return $this->belongsToMany(Work::class, 'employer_works');
+    }
+
+    public function work()
+    {
+        return $this->hasMany(Work::class);
+    }
+
+    public function fullname()
+    {
+        return $this->name . ' ' . $this->surname;
     }
 }

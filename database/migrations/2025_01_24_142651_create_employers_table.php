@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('employers', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('company_id')->index()->constrained()->cascadeOnDelete();
+            $table->unsignedBigInteger('company_id')->nullable();
+            $table->foreign('company_id')->references('id')->on('companies')->cascadeOnDelete();
             $table->string('name');
             $table->string('surname');
             $table->string('email')->unique();
