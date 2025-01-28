@@ -10,7 +10,11 @@
         @foreach($category->works as $work)
             <div class="col">
                 <div class="bg-white h-100 rounded p-3">
-                    <div class="h4 text-secondary">{{ $work->name }}</div>
+                    <div class="h4 text-secondary">
+                        <a href="{{ route("work.show",$work->id) }}">
+                            {{ $work->name }}
+                        </a>
+                    </div>
                     <div class="h5 fw-normal">{{ number_format($work->salary, 2, '.', '.') }} <span class="small">TMT</span>
                     </div>
                     <div>

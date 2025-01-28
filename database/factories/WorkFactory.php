@@ -25,7 +25,7 @@ class WorkFactory extends Factory
             'company_id' => Company::inRandomOrder()->first()->id,
             'viewed' => rand(100, 500),
             'name' => fake()->jobTitle(),
-            'description' => fake()->paragraph($nbSentences = 3, $variableNbSentences = true),
+            'description' => fake()->paragraph($nbSentences = 6, $variableNbSentences = true),
             'salary' => fake()->numberBetween($min = 0, $max = 9000),
             'work_type' => fake()->randomElement(['remote', 'onsite', 'hybrid']),
             'work_time' => fake()->randomElement(['daily', 'monthly', 'yearly']),

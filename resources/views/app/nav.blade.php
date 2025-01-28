@@ -27,7 +27,7 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="#">Companies</a>
+                    <a class="nav-link text-white" href="{{}}">Companies</a>
                 </li>
             </ul>
             <form class="d-flex" role="search">
