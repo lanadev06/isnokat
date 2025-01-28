@@ -61,4 +61,14 @@ class HomeController extends Controller
                 'work' => $work,
             ]);
     }
+
+    public function work($id)
+    {
+        $work = Work::findOrFail($id);
+
+        return view('home.work')
+            ->with([
+                'work' => $work,
+            ]);
+    }
 }
