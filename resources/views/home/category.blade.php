@@ -7,7 +7,7 @@
         {{ $category->name }}
     </div>
     <div class="row row-cols-2 row-cols-md-2 g-3 pb-3">
-        @foreach($category->works as $work)
+        @foreach($works as $work)
             <div class="col">
                 <div class="bg-white h-100 rounded p-3">
                     <div class="h4 text-secondary">
@@ -15,7 +15,8 @@
                             {{ $work->name }}
                         </a>
                     </div>
-                    <div class="h5 fw-normal">{{ number_format($work->salary, 2, '.', '.') }} <span class="small">TMT</span>
+                    <div class="h5 fw-normal">{{ number_format($work->salary, 2, '.', '.') }} <span
+                            class="small">TMT</span>
                     </div>
                     <div>
                         <span class="pe-1">
@@ -30,5 +31,8 @@
                 </div>
             </div>
         @endforeach
+    </div>
+    <div class="pt-3">
+        {{ $works->links() }}
     </div>
 @endsection

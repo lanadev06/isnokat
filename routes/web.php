@@ -14,4 +14,9 @@ Route::controller(HomeController::class)
 
         Route::get('work/{id}','work')
             ->where('id','[0-9]+')->name('work.show');
+
+        Route::get('location/{id}','location')
+            ->where('id','[0-9]+')->name('location.show');
+
+        Route::get('companies','companies')->name('companies');
     });

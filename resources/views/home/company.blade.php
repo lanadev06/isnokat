@@ -7,7 +7,7 @@
         {{ $company->name }}
     </div>
     <div class="row row-cols-2 row-cols-md-2 g-3 pb-3">
-        @foreach($company->works as $work)
+        @foreach($works as $work)
             <div class="col">
                 <div class="bg-white h-100 rounded p-3">
                     <div class="h4 text-secondary">
@@ -30,5 +30,8 @@
                 </div>
             </div>
         @endforeach
+    </div>
+    <div class="pt-3">
+        {{ $works->links() }}
     </div>
 @endsection

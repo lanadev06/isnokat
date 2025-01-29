@@ -12,22 +12,18 @@
                 <li class="nav-item">
                     <a class="nav-link active text-white" aria-current="page" href="{{ route('home') }}">Home</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="">Categories</a>
-                </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Locations
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        @foreach($locations as $location)
+                            <li><a class="dropdown-item" href="{{ route('location.show', $location->id) }}">{{ $location->name }}</a></li>
+                        @endforeach
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="{{}}">Companies</a>
+                    <a class="nav-link text-white" href="{{ route('companies') }}">Companies</a>
                 </li>
             </ul>
             <form class="d-flex" role="search">

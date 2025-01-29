@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="pt-5">
-        <div class="bg-white p-4 h-100 fs-5 rounded">
+        <div class="bg-white p-4 fs-5 rounded">
             <div class="h3 text-secondary fw-bold">{{ $work->name }}</div>
             <div class="h4 fw-normal">{{ number_format($work->salary, 2, '.', '.') }} <span class="small">TMT</span>
             </div>
@@ -17,6 +17,8 @@
             <div>Description:<span class="text-black-50">{{ $work->description }}</span></div>
             <div>Category: <span class="text-primary">{{ $work->category->name }}</span></div>
             <div>Employer: <span class="text-primary">{{$work->employer->fullname()}}</span></div>
+            <div>Phone: <span class="text-primary">{{ $work->employer->phone }}</span></div>
+            <div>Email: <span class="text-primary">{{ $work->employer->email }}</span></div>
             <div>Location: <span class="text-primary">
                     {{$work->company->location->parent->name}},{{ $work->company->location->name }}
                 </span>

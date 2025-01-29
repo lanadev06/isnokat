@@ -34,15 +34,15 @@ class HomeController extends Controller
     {
         $category = Category::firstWhere('slug', $slug);
 
-        $work = Work::where('category_id',$category->id)
-            ->with('company','employer')
-            ->orderBy('viewed','asc')
+        $works = Work::where('category_id', $category->id)
+            ->with('company', 'employer')
+            ->orderBy('viewed', 'asc')
             ->paginate(24);
 
         return view('home.category')
             ->with([
                 'category' => $category,
-                'work' => $work,
+                'works' => $works,
             ]);
     }
 
@@ -50,15 +50,15 @@ class HomeController extends Controller
     {
         $company = Company::findOrFail($id);
 
-        $work = Work::where('company_id',$company->id)
-            ->with('category','employer')
-            ->orderBy('viewed','asc')
+        $works = Work::where('company_id', $company->id)
+            ->with('category', 'employer')
+            ->orderBy('viewed', 'asc')
             ->paginate(24);
 
         return view('home.company')
             ->with([
                 'company' => $company,
-                'work' => $work,
+                'works' => $works,
             ]);
     }
 
@@ -69,6 +69,30 @@ class HomeController extends Controller
         return view('home.work')
             ->with([
                 'work' => $work,
+            ]);
+    }
+
+    public function location($id)
+    {
+        $location = Location::with('children')->findOrFail($id);
+
+        $companies = Company::where('location_id', $location->id)
+            ->get();
+
+        return view('home.location')
+            ->with([
+                'location' => $location,
+                'companies' => $companies,
+            ]);
+    }
+
+    public function companies()
+    {
+        $companies = Company::orderBy('name')->get();
+
+        return view('home.companies')
+            ->with([
+                'companies' => $companies,
             ]);
     }
 }

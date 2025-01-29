@@ -2,6 +2,10 @@
 
 namespace App\Providers;
 
+use App\Models\Company;
+use App\Models\Location;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -19,6 +23,15 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        Paginator::useBootstrapFive();
+
+        View::composer('*', function ($view) {
+            $locations = Location::whereNull('parent_id')->orderBy('id', 'desc')
+                ->get();
+
+            $view->with([
+               'locations' => $locations,
+            ]);
+        });
     }
 }
